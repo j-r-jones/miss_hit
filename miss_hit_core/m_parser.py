@@ -3,7 +3,7 @@
 ##                                                                          ##
 ##          MATLAB Independent, Small & Safe, High Integrity Tools          ##
 ##                                                                          ##
-##              Copyright (C) 2019-2023, Florian Schanda                    ##
+##              Copyright (C) 2019-2024, Florian Schanda                    ##
 ##              Copyright (C) 2019-2020, Zenuity AB                         ##
 ##                                                                          ##
 ##  This file is part of MISS_HIT.                                          ##
@@ -1221,6 +1221,7 @@ class MATLAB_Parser:
 
     def parse_annotation_pragma(self):
         punctuation = []
+        n_reason    = None
 
         self.amatch("KEYWORD", "pragma")
         t_pragma = self.ct

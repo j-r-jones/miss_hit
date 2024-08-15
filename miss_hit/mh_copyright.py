@@ -3,7 +3,7 @@
 ##                                                                          ##
 ##          MATLAB Independent, Small & Safe, High Integrity Tools          ##
 ##                                                                          ##
-##              Copyright (C) 2021-2022, Florian Schanda                    ##
+##              Copyright (C) 2021-2024, Florian Schanda                    ##
 ##                                                                          ##
 ##  This file is part of MISS_HIT.                                          ##
 ##                                                                          ##
@@ -220,6 +220,7 @@ class MH_Copyright(command_line.MISS_HIT_Back_End):
                 merged_line_is_block = None
                 killed_lines = []
                 new_range = None
+                merged_line_copy_notice = None
                 for line_no in sorted(cinfos):
                     cinfo = cinfos[line_no]
                     ystart, yend = cinfo.get_range()
@@ -247,6 +248,8 @@ class MH_Copyright(command_line.MISS_HIT_Back_End):
                     # pylint: enable=unsubscriptable-object
 
                 if action_taken:
+                    if merged_line_copy_notice is None:
+                        raise ICE("merged_line_copy_notice is None")
                     replace_line(lines, merged_line, merged_line_is_block,
                                  templates, merged_line_copy_notice,
                                  primary_entity, new_range)
@@ -367,7 +370,7 @@ def main_handler():
     c_data.add_argument("--primary-entity",
                         default=None,
                         metavar="COPYRIGHT_HOLDER",
-                        help=("The primary copyright entity."))
+                        help="The primary copyright entity.")
     c_data.add_argument("--template-range",
                         default="%(copy)s %(ystart)u-%(yend)u %(org)s",
                         metavar="TEMPLATE_TEXT",

@@ -302,6 +302,7 @@ class Config_Parser:
                 msg += " (did you mean %s?)" % suggestions[0]
             self.mh.error(self.ct.location, msg)
 
+        # pylint: disable=possibly-used-before-assignment
         return Style_Application(rule_name, enabled)
 
     def parse_style_configuration(self):

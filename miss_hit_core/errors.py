@@ -3,7 +3,7 @@
 ##                                                                          ##
 ##          MATLAB Independent, Small & Safe, High Integrity Tools          ##
 ##                                                                          ##
-##              Copyright (C) 2019-2022, Florian Schanda                    ##
+##              Copyright (C) 2019-2024, Florian Schanda                    ##
 ##              Copyright (C) 2019, Zenuity AB                              ##
 ##                                                                          ##
 ##  This file is part of MISS_HIT.                                          ##
@@ -500,6 +500,7 @@ class Message_Handler:
         else:
             self.warning(token.location,
                          "invalid justification not recognized")
+            return
 
         # Add justification
         just = self.justifications[token.location.filename]

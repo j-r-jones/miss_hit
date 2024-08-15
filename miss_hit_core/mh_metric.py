@@ -3,7 +3,7 @@
 ##                                                                          ##
 ##          MATLAB Independent, Small & Safe, High Integrity Tools          ##
 ##                                                                          ##
-##              Copyright (C) 2020-2022, Florian Schanda                    ##
+##              Copyright (C) 2020-2024, Florian Schanda                    ##
 ##              Copyright (C) 2020, Veoneer System Software GmbH            ##
 ##                                                                          ##
 ##  This file is part of MISS_HIT.                                          ##
@@ -1106,7 +1106,7 @@ def main_handler():
         "--html",
         default=None,
         metavar="FILE",
-        help=("Write HTML metrics report to the file."))
+        help="Write HTML metrics report to the file.")
 
     clp["output_options"].add_argument(
         "--portable-html",
@@ -1119,7 +1119,7 @@ def main_handler():
         "--json",
         default=None,
         metavar="FILE",
-        help=("Create JSON metrics report in the given file."))
+        help="Create JSON metrics report in the given file.")
 
     options = command_line.parse_args(clp)
 

@@ -3,7 +3,7 @@
 ##                                                                          ##
 ##          MATLAB Independent, Small & Safe, High Integrity Tools          ##
 ##                                                                          ##
-##              Copyright (C) 2020, Florian Schanda                         ##
+##              Copyright (C) 2020-2024, Florian Schanda                    ##
 ##              Copyright (C) 2020, Veoneer Sweden AB                       ##
 ##                                                                          ##
 ##  This file is part of MISS_HIT.                                          ##
@@ -52,6 +52,7 @@ try:
 
     # We need to check this actually exists. Older installs could mask
     # option 2 or 3.
+    # pylint: disable=broad-exception-raised
     if not os.path.isfile(RES_URL):
         raise Exception
 

@@ -3,7 +3,7 @@
 ##                                                                          ##
 ##          MATLAB Independent, Small & Safe, High Integrity Tools          ##
 ##                                                                          ##
-##              Copyright (C) 2019-2022, Florian Schanda                    ##
+##              Copyright (C) 2019-2024, Florian Schanda                    ##
 ##              Copyright (C) 2019-2020, Zenuity AB                         ##
 ##                                                                          ##
 ##  This file is part of MISS_HIT.                                          ##
@@ -545,6 +545,7 @@ class MATLAB_Lexer(Token_Generator):
                 else:
                     max_digits = 64 // bits_per_digit
 
+                # pylint: disable=possibly-used-before-assignment
                 if len(digits) > max_digits:
                     self.lex_error(
                         "too many digits for %u-bit %s literal" %

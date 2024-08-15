@@ -3,7 +3,7 @@
 ##                                                                          ##
 ##          MATLAB Independent, Small & Safe, High Integrity Tools          ##
 ##                                                                          ##
-##              Copyright (C) 2020-2022, Florian Schanda                    ##
+##              Copyright (C) 2020-2024, Florian Schanda                    ##
 ##              Copyright (C) 2023,      BMW AG                             ##
 ##                                                                          ##
 ##  This file is part of MISS_HIT.                                          ##
@@ -328,6 +328,7 @@ class Simulink_SLX_Parser(Simulink_Parser):
         # more stateflow support in the future.
         is_eml    = False
         et_script = None
+        # pylint: disable-next=used-before-assignment
         for et_eml in et_chart.find("Children").iter("eml"):
             for et_item in et_eml:
                 if et_item.tag == "P":
