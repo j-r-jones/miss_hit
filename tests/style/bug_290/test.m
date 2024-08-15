@@ -1,0 +1,6 @@
+function [] = test()
+    a = 0;
+    arguments = struct(...
+        'test', 1.0...
+    );
+end

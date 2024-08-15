@@ -1,0 +1,15 @@
+=== PLAIN MODE ===
+test.m: error: file is not auto-fixed because it contains parse errors
+In test.m, line 3
+|     arguments = struct(...
+|     ^^^^^^^^^ error: expected valid statement, found keyword 'arguments' instead
+In test.m, line 3
+|     arguments = struct(...
+|                        ^^^^ style: continuation must be preceeded by whitespace [whitespace_continuation]
+In test.m, line 4
+|         'test', 1.0...
+|                    ^^^^ style: continuation must be preceeded by whitespace [whitespace_continuation]
+MISS_HIT Style Summary: 1 file(s) analysed, 2 style issue(s), 2 error(s)
+
+=== HTML MODE ===
+MISS_HIT Style Summary: 1 file(s) analysed, 2 style issue(s), 1 error(s)
