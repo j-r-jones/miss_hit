@@ -29,6 +29,9 @@ Not quite compatible with Octave yet. See #43 [octave support](https://github.co
 * Fix parser error for enumeration values with no parameters using
   brackets.
 
+* Fix tool crash when `--debug-dump-tree` was specified without
+  `--single`. This is now clear in the error message.
+
 * Add new configuration directive `ignore_dir`. This works just like
   `exclude_dir` but does not raise an error if the directory doesn't
   exist.

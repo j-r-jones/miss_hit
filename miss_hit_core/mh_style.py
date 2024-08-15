@@ -3,7 +3,7 @@
 ##                                                                          ##
 ##          MATLAB Independent, Small & Safe, High Integrity Tools          ##
 ##                                                                          ##
-##              Copyright (C) 2019-2022, Florian Schanda                    ##
+##              Copyright (C) 2019-2024, Florian Schanda                    ##
 ##              Copyright (C) 2019-2020, Zenuity AB                         ##
 ##                                                                          ##
 ##  This file is part of MISS_HIT.                                          ##
@@ -1283,9 +1283,12 @@ def main_handler():
 
     # pylint: disable=consider-using-with
     if options.debug_dump_tree:
-        extra_options["fd_tree"] = open(options.debug_dump_tree,
-                                        "w",
-                                        encoding="UTF-8")
+        if options.single:
+            extra_options["fd_tree"] = open(options.debug_dump_tree,
+                                            "w",
+                                            encoding="UTF-8")
+        else:
+            clp["ap"].error("The debug_dump_tree requires the --single option")
     # pylint: enable=consider-using-with
 
     style_backend = MH_Style()
