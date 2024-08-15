@@ -1,0 +1,14 @@
+=== PLAIN MODE ===
+In test.m, line 1
+| classdef (Enumeration) Version < handle
+|                        ^^^^^^^ style: Could not find any copyright notice [copyright_notice]
+In test.m, line 8
+|         R2023B('R2023B', 50, 23.2,  23.2)
+|         ^^^^^^ style: violates naming scheme for enumeration [naming_enumerations]
+In test.m, line 10
+|         R2023A('R2023A', 49, 9.14,  10.7)
+|         ^^^^^^ style: violates naming scheme for enumeration [naming_enumerations]
+MISS_HIT Style Summary: 1 file(s) analysed, 3 style issue(s)
+
+=== HTML MODE ===
+MISS_HIT Style Summary: 1 file(s) analysed, 3 style issue(s)

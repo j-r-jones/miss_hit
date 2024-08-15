@@ -1094,7 +1094,7 @@ class MATLAB_Parser:
                 self.match("BRA")
                 self.ct.set_ast(enum)
 
-                while True:
+                while not self.peek("KET"):
                     enum.add_argument(self.parse_expression())
                     if self.peek("COMMA"):
                         self.match("COMMA")

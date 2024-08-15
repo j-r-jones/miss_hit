@@ -26,6 +26,9 @@ Not quite compatible with Octave yet. See #43 [octave support](https://github.co
 
 * Fix hanging tools when an internal compiler error was raised.
 
+* Fix parser error for enumeration values with no parameters using
+  brackets.
+
 * Add new configuration directive `ignore_dir`. This works just like
   `exclude_dir` but does not raise an error if the directory doesn't
   exist.
