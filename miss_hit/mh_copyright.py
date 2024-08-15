@@ -309,7 +309,11 @@ class MH_Copyright(command_line.MISS_HIT_Back_End):
             return MH_Copyright_Result(wp, False)
 
         if action_taken:
-            wp.write_modified("\n".join(lines) + "\n")
+            if wp.cfg.active("force_newlines"):
+                newlines = wp.cfg.style_config["newline_style"]
+            else:
+                newlines = "native"
+            wp.write_modified("\n".join(lines) + "\n", newlines)
 
         return MH_Copyright_Result(wp, True)
 

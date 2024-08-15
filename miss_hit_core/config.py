@@ -424,6 +424,14 @@ STYLE_RULES = {
                 default = True)
         }),
 
+    "force_newlines" : Style_Rule(
+        "Make newlines consistent.",
+        {
+            "newline_style" : Choice_Style_Configuration(
+                "Newline style",
+                ["native", "crlf", "lf", "cr"]),
+        }),
+
     "redundant_brackets" : Style_Rule(
         "Check for obviously useless brackets. Does not complain about"
         " brackets added for clarifying operator precedence."),

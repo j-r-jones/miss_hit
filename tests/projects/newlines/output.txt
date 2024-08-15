@@ -1,0 +1,42 @@
+=== STYLE ===
+MISS_HIT Style Summary: 1 file(s) analysed, everything seems fine
+=== LINT ===
+MISS_HIT Lint Summary: 1 file(s) analysed, everything seems fine
+=== METRICS ===
+=== Code metric by file:
+
+* Code metrics for file windows/Foo.m:
+  File lines: 8
+
+  Code metrics for function Foo:
+    Control nesting      : 1
+    Cyclomatic complexity: 2
+    Function lines       : 6
+    Globals              : 0
+    Number of paths      : 2
+    Parameters           : 2
+    Persistents          : 0
+
+=== Global summary of worst offenders by metric:
+
+* File metric 'File lines':
+  1. 8 (windows/Foo.m)
+
+* Function metric 'Control nesting':
+  1. 1 (windows/Foo.m, function Foo)
+
+* Function metric 'Cyclomatic complexity':
+  1. 2 (windows/Foo.m, function Foo)
+
+* Function metric 'Function lines':
+  1. 6 (windows/Foo.m, function Foo)
+
+* Function metric 'Number of paths':
+  1. 2 (windows/Foo.m, function Foo)
+
+* Function metric 'Parameters':
+  1. 2 (windows/Foo.m, function Foo)
+
+MISS_HIT Metric Summary: 1 file(s) analysed, everything seems fine
+=== TRACING ===
+MISS_HIT Trace Summary: 1 file(s) analysed, everything seems fine

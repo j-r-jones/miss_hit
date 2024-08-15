@@ -382,6 +382,25 @@ enable_rule: "file_length"
         modern version control systems.
       </div>
 
+      <h4>Newlines</h4>
+      <div>
+        This rule enforces consistent newlines in your files, with the
+        default being your platform's newlines.
+      </div>
+      <div>
+        Configuration parameters:
+        <ul>
+          <li>
+            <b>newline_style</b>: <tt>"native"</tt> (the
+            default), <tt>"lf"</tt>, <tt>"crlf"</tt>, or <tt>"cr"</tt>
+          </li>
+        </ul>
+      </div>
+      <div>
+        It is strongly advised to not change this, and instead
+        configure <tt>git</tt> correctly to deal with this problem.
+      </div>
+
       <!-- END HOOK: MANDATORY RULES -->
     </section>
 

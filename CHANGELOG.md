@@ -30,6 +30,12 @@ Not quite compatible with Octave yet. See #43 [octave support](https://github.co
   `exclude_dir` but does not raise an error if the directory doesn't
   exist.
 
+* Add new configuration option `newline_style`. By default MISS_HIT
+  will just use the native line endings, but by setting
+  `newline_style` to `lf`, `crlf`, or `cr` you can force it to use
+  platform-specific newlines. You can also use `native` to restore the
+  default behaviour.
+
 ### 0.9.42
 
 * Fix issue with MATLAB functions embedded in Simulink. Usually people

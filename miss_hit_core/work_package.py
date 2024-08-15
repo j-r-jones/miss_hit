@@ -47,7 +47,7 @@ class Work_Package:
         self.extra_options = extra_options
         self.modified      = False
 
-    def write_modified(self, content):
+    def write_modified(self, content, newlines):
         raise ICE("somhow called root class method")
 
 
@@ -60,7 +60,7 @@ class SIMULINK_File_WP(Work_Package):
         self.slp       = None
         self.n_content = None
 
-    def write_modified(self, content):
+    def write_modified(self, content, newlines):
         raise ICE("logic error - must not be called for SL File WP")
 
     def register_file(self):
@@ -108,10 +108,17 @@ class MATLAB_File_WP(MATLAB_Work_Package):
                          mh, options, extra_options)
         self.cfg = cfg_tree.get_config(self.filename)
 
-    def write_modified(self, content):
+    def write_modified(self, content, newlines):
         assert isinstance(content, str)
         self.modified = True
-        with open(self.filename, "w", encoding=self.encoding) as fd:
+        newline_map = {"native" : None,
+                       "lf"     : "\n",
+                       "cr"     : "\r",
+                       "crlf"   : "\r\n"}
+        with open(self.filename,
+                  "w",
+                  encoding=self.encoding,
+                  newline=newline_map[newlines]) as fd:
             fd.write(content)
 
     def get_content(self):
@@ -167,7 +174,7 @@ class Embedded_MATLAB_WP(MATLAB_Work_Package):
         self.block       = simulink_block
         self.simulink_wp = simulink_wp
 
-    def write_modified(self, content):
+    def write_modified(self, content, newlines):
         assert isinstance(content, str)
         self.modified = True
         self.simulink_wp.modified = True

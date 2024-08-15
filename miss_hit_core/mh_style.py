@@ -1178,7 +1178,11 @@ class MH_Style(command_line.MISS_HIT_Back_End):
                             fatal=False)
             else:
                 # TODO: call modify()
-                wp.write_modified(tbuf.replay())
+                if wp.cfg.active("force_newlines"):
+                    newlines = wp.cfg.style_config["newline_style"]
+                else:
+                    newlines = "native"
+                wp.write_modified(tbuf.replay(), newlines)
 
         # Return results
 
