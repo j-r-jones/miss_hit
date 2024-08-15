@@ -3,7 +3,7 @@
 ##                                                                          ##
 ##          MATLAB Independent, Small & Safe, High Integrity Tools          ##
 ##                                                                          ##
-##              Copyright (C) 2022, Florian Schanda                         ##
+##              Copyright (C) 2022-2024, Florian Schanda                    ##
 ##                                                                          ##
 ##  This file is part of MISS_HIT.                                          ##
 ##                                                                          ##
@@ -140,6 +140,7 @@ class Config_Language(Language):
             "enable_rule",
             "entrypoint",
             "exclude_dir",
+            "ignore_dir",
             "global",
             "libraries",
             "library",

@@ -3,7 +3,7 @@
 ##                                                                          ##
 ##          MATLAB Independent, Small & Safe, High Integrity Tools          ##
 ##                                                                          ##
-##              Copyright (C) 2020-2022, Florian Schanda                    ##
+##              Copyright (C) 2020-2024, Florian Schanda                    ##
 ##                                                                          ##
 ##  This file is part of MISS_HIT.                                          ##
 ##                                                                          ##
@@ -167,7 +167,8 @@ class Config_Parser:
              self.peek("KEYWORD", "suppress_rule"):
             n_item = self.parse_style_application()
 
-        elif self.peek("KEYWORD", "exclude_dir"):
+        elif self.peek("KEYWORD", "exclude_dir") or \
+             self.peek("KEYWORD", "ignore_dir"):
             n_item = self.parse_directory_exclusion()
 
         elif self.peek("KEYWORD", "project_root"):
@@ -362,18 +363,27 @@ class Config_Parser:
         return Style_Configuration(config_name, value)
 
     def parse_directory_exclusion(self):
-        self.match("KEYWORD", "exclude_dir")
+        if self.peek("KEYWORD", "ignore_dir"):
+            self.match("KEYWORD", "ignore_dir")
+            permissive = True
+        else:
+            self.match("KEYWORD", "exclude_dir")
+            permissive = False
+
         self.match("COLON")
         value = self.parse_string()
 
-        if not os.path.exists(os.path.join(self.dirname, value)):
-            self.mh.error(self.ct.location, "does not exist")
-        elif not os.path.isdir(os.path.join(self.dirname, value)):
+        actual_dir = os.path.join(self.dirname, value)
+
+        if not os.path.exists(actual_dir):
+            if not permissive:
+                self.mh.error(self.ct.location, "does not exist")
+        elif not os.path.isdir(actual_dir):
             self.mh.error(self.ct.location,
                           "is not a directory")
         elif os.path.basename(value) != value:
             self.mh.error(self.ct.location,
-                          "must local (non-relative) directory")
+                          "must name a local (non-relative) directory")
 
         # TODO: Allow wildcards (see #5)
 

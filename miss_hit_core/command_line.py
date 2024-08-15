@@ -3,7 +3,7 @@
 ##                                                                          ##
 ##          MATLAB Independent, Small & Safe, High Integrity Tools          ##
 ##                                                                          ##
-##              Copyright (C) 2020-2022, Florian Schanda                    ##
+##              Copyright (C) 2020-2024, Florian Schanda                    ##
 ##              Copyright (C) 2023,      BMW AG                             ##
 ##                                                                          ##
 ##  This file is part of MISS_HIT.                                          ##
@@ -381,7 +381,8 @@ def execute(mh, options, extra_options, back_end,
             for path, dirs, files in os.walk(item):
                 dirs.sort()
                 for excluded_dir in cfg_tree.get_excluded_directories(path):
-                    dirs.remove(excluded_dir)
+                    if os.path.exists(os.path.join(path, excluded_dir)):
+                        dirs.remove(excluded_dir)
                 hidden_dirs = [d for d in dirs if d.startswith(".")]
                 for hidden_dir in hidden_dirs:
                     dirs.remove(hidden_dir)

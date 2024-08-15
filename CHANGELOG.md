@@ -26,6 +26,10 @@ Not quite compatible with Octave yet. See #43 [octave support](https://github.co
 
 * Fix hanging tools when an internal compiler error was raised.
 
+* Add new configuration directive `ignore_dir`. This works just like
+  `exclude_dir` but does not raise an error if the directory doesn't
+  exist.
+
 ### 0.9.42
 
 * Fix issue with MATLAB functions embedded in Simulink. Usually people

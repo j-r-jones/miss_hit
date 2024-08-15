@@ -608,11 +608,20 @@ DIALECT ::= octave ':' STRING
 
       <h3><a name="exclude_dir"></a>Directory exclusion</h3>
       <div>
-	Grammar: <pre>EXCLUSION ::= exclude_dir ':' STRING</pre>
+	Grammar:
+<pre>
+EXCLUSION_KIND ::= exclude_dir | ignore_dir
+EXCLUSION      ::= EXCLUSION_KIND ':' STRING
+</pre>
       </div>
       <div>
 	This directive completely removes a directory from
-	consideration, and makes them project roots.
+	consideration, and makes them project
+	roots. The <tt>exclude_dir</tt> directive raises an error if
+	the excluded directory does not exist, the <tt>ignore_dir</tt>
+	does not. It is recommended to use <tt>exclude_dir</tt>
+	whenever possible, since that way you notice if you rename or
+	move a directory without updating the configuration files.
       </div>
       <div>
 	MISS_HIT will not enter such directories, unless explicitly

@@ -1,0 +1,10 @@
+=== STYLE ===
+MISS_HIT Style Summary: 0 file(s) analysed, everything seems fine
+=== LINT ===
+MISS_HIT Lint Summary: 0 file(s) analysed, everything seems fine
+=== METRICS ===
+=== Code metric by file:
+
+MISS_HIT Metric Summary: 0 file(s) analysed, everything seems fine
+=== TRACING ===
+MISS_HIT Trace Summary: 0 file(s) analysed, everything seems fine
